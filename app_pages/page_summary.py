@@ -7,7 +7,7 @@ def page_summary_body():
 
     st.header("General Information: ")
     st.info(
-        f"* Powdery mildew is a fungal disease that affects a wide range of "
+        f" Powdery mildew is a fungal disease that affects a wide range of "
         f"plants. Powdery mildew diseases are caused by many different species"
         f" of ascomycete fungi in the order Erysiphales. Powdery mildew is one"
         f" of the easier plant diseases to identify, as its symptoms are quite"
