@@ -13,8 +13,9 @@ def page_ml_performance_body():
 
     st.header("Train, Validation and Test Set: Labels Frequencies")
     st.info(
-        f"This bar graph shows a visual breakdown on the amount of images, for each category label, that were "
-        f"used as dataset for the train, validate and test data groupings."
+        f"This bar graph shows a visual breakdown on the amount of images, for"
+        f" each category label, that were used as dataset for the train, "
+        f"validate and test data groupings."
     )
 
     labels_distribution = plt.imread(
@@ -25,11 +26,13 @@ def page_ml_performance_body():
 
     st.header("Model History")
     st.info(
-        f"The graph below provide a visual representation of the learning cycle for the ML model used for this"
-        f"project. The two graphs show the accuracy and loss plots as a result of the training process.\n\n"
-        f"These two graphs provide visual proof of a normal learning curve of the ML pipeline as both graphs "
-        f"show a similar path and are close to each other. These graphs prove that the model is neither overfitting "
-        f"or underfitting; it is a normal learning curve."
+        f"The graph below provide a visual representation of the learning "
+        f" cyclefor the ML model used for this project. The two graphs show "
+        f"the accuracy and loss plots as a result of the training process.\n\n"
+        f"These two graphs provide visual proof of a normal learning curve of "
+        f"the ML pipeline as both graphs show a similar path and are close to "
+        f"each other. These graphs prove that the model is neither overfitting"
+        f" or underfitting; it is a normal learning curve."
     )
 
     col1, col2 = st.beta_columns(2)
@@ -43,8 +46,8 @@ def page_ml_performance_body():
 
     st.header("Generalised Performance on Test Set")
     st.info(
-        f"This table graph provides a numerical explanation of the line graphs above, a normal learning curve "
-        f"and a 99% accurate ML model."
+        f"This table graph provides a numerical explanation of the line graphs"
+        f" above, a normal learning curve and a 99% accurate ML model."
     )
     # load_test_evaluation(version)
     st.dataframe(pd.DataFrame(load_test_evaluation(
