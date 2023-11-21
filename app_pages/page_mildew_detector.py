@@ -3,12 +3,12 @@ from PIL import Image
 import numpy as np
 import pandas as pd
 
-from src.data_management import download_dataframe_as_csv
+from src.data_management import download_dataframe_as_csv  # pylint: disable=import-error
 from src.machine_learning.predictive_analysis import (
     load_model_and_predict,
     resize_input_image,
     plot_predictions_probabilities
-)
+)  # pylint: disable=import-error
 
 
 def page_mildew_detector_body():

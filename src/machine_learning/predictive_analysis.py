@@ -4,7 +4,7 @@ import pandas as pd
 import plotly.express as px
 from tensorflow.keras.models import load_model
 from PIL import Image
-from src.data_management import load_pkl_file
+from src.data_management import load_pkl_file  # pylint: disable=import-error
 
 
 def plot_predictions_probabilities(pred_proba, pred_class):

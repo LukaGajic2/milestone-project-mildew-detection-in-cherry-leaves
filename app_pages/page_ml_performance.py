@@ -2,7 +2,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import pandas as pd
 from matplotlib.image import imread
-from src.machine_learning.evaluate_clf import load_test_evaluation
+from src.machine_learning.evaluate_clf import load_test_evaluation  # pylint: disable=import-error
 
 
 def page_ml_performance_body():
@@ -27,7 +27,7 @@ def page_ml_performance_body():
     st.header("Model History")
     st.info(
         f"The graph below provide a visual representation of the learning "
-        f" cyclefor the ML model used for this project. The two graphs show "
+        f" cycle for the ML model used for this project. The two graphs show "
         f"the accuracy and loss plots as a result of the training process.\n\n"
         f"These two graphs provide visual proof of a normal learning curve of "
         f"the ML pipeline as both graphs show a similar path and are close to "
