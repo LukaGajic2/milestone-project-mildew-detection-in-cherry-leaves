@@ -15,7 +15,7 @@
   - [The rationale to map the business requirements to the Data Visualisations and ML tasks](#the-rationale-to-map-the-business-requirements-to-the-data-visualisations-and-ml-tasks)
   - [ML Business Case](#ml-business-case)
   - [Dashboard Design](#dashboard-design)
-  - [Unfixed Bugs](#unfixed-bugs)
+  - [Bugs](#bugs)
   - [Deployment](#deployment)
     - [Heroku](#heroku)
   - [Main Data Analysis and Machine Learning Libraries](#main-data-analysis-and-machine-learning-libraries)
@@ -40,8 +40,8 @@ The cherry plantation crop from Farmy & Foods is facing a challenge where their 
 
 To save time in this process, the IT team suggested an ML system that detects instantly, using a leaf tree image, if it is healthy or has powdery mildew. A similar manual process is in place for other crops for detecting pests, and if this initiative is successful, there is a realistic chance to replicate this project for all other crops. The dataset is a collection of cherry leaf images provided by Farmy & Foods, taken from their crops.
 
-* 1 - The client is interested in conducting a study to visually differentiate a healthy cherry leaf from one with powdery mildew.
-* 2 - The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew.
+- 1 - The client is interested in conducting a study to visually differentiate a healthy cherry leaf from one with powdery mildew.
+- 2 - The client is interested in predicting if a cherry leaf is healthy or contains powdery mildew.
 
 ## Hypothesis and how to validate
 
@@ -67,7 +67,7 @@ To save time in this process, the IT team suggested an ML system that detects in
 
   - We will display the "mean" and "standard deviation" images for infected and uninfected leaves.
   - We will display the difference between an average infected leaf and an average uninfected leaf.
-  - We will display an image montage for either infected or uninfected cells.
+  - We will display an image montage for either infected or uninfected leaves.
 
 - **Business Requirement 2**: Classification
   - We want to predict if a choosen cherry leaf is infected, or not, by powdery mildew.
@@ -85,22 +85,89 @@ To save time in this process, the IT team suggested an ML system that detects in
 
 ## Dashboard Design
 
-## Unfixed Bugs
+The Dashboard contains five app pages in Streamlit App User Interface style.
+
+1. Page Summary Overview
+
+- General information  
+
+Powdery mildew is a fungal disease that affects a wide range of plants. Powdery mildew diseases are caused by many different species of ascomycete fungi in the order Erysiphales. Powdery mildew is one of the easier plant diseases to identify, as its symptoms are quite distinctive. Infected plants display white powdery spots on the leaves and stems. The lower leaves are the most affected, but the mildew can appear on any above-ground part of the plant. As the disease progresses, the spots get larger and denser as large numbers of asexual spores are formed, and the mildew may spread up and down the length of the plant.
+
+- Problem Statement
+
+Farmy and Foods agricultural plantation has recently discovered Powdery Mildew infections in some of their Cherry Trees. The Cherry Leaves production is one of their largest portfolio assets and there can be a large financial short term and long term to a variety of thier crops if the infection is not identified and prevented quickly. With conventional means, there is a large labor cost in time and resources to identify infected leaves. Farmy and Foods requires a new method to quickly identify infected leaves from healthy leaves in order to save time and labour to treat the trees, save the harvest and protect the company's finances.
+
+- Project Dataset
+
+The Kaggle Cherry Leaves dataset contains 4208 images of healthy and infected cherry leaves and was used as the source to train the ML app.
+
+- Business Requirements
+
+- The client is interested to have a study to visually differentiate between infected and uninfected cherry leaves.
+- The client is interested in positively identifying whether a particular cherry leaf is infected with mold or not.
+
+2. Leaf Visualizer
+
+On this page we answer the first business requirement: 
+The client is interested to have a study to visually differentiate between infected and uninfected cherry leaves.
+
+- Checkbox 1 shows Difference between Average and Variability image.
+- Checkbox 2 shows Differences between a Healthy and an Infected Cherry Leaf
+- Checkbox 3 shows Image Montage where user can self make collage of 24 images of infected or healthy leaves to see the difference.
+
+3. Mildew Detector
+
+The Mildew Detector page is, with no doubt, the most important page in the dashboard.
+It answers the second business requirement: The client is interested in positively identifying whether a particular cherry leaf is infected with mold or not.
+On the page the client/user can interact with the ML app by uploading images and having the app predict if the leaf is infected or healthy.
+
+![Screenshot of the Mildew Detector page](/assets/detector.png)
+
+4. Project Hypothesis
+
+On this page it is explained project hypothesis and how it is validated.
+
+![Screenshot of the Project Hypothesis page](/assets/hypothesis.png)
+
+5. ML Performance
+
+On this page it is represented:
+
+- Train, Validation and Test set(bar graph shows a visual breakdown on the amount of images, for each category label).
+- Model History(graph provide a visual representation of the learning cycle for the ML model used for this project).
+- Generalised Performance on Test Set(graph provides a numerical explanation of the line graphs above)
+
+## Bugs
+
+1. fixed bugs 
+
+- AttributeError: module 'PIL.Image' has no attribute 'ANTIALIAS'
+
+(ANTIALIAS was removed in Pillow 10.0.0. I used LANCZOS as recommended "Reference: Pillow 10.0.0 release notes (with table of removed constants)")
+
+- pylint(import_error)
+
+![Screenshot of the import_error issue](/assets/import_error.png)
+
+fixed by adding comment "# pylint: disable=import-error" next to import (thanks to Neil McEwen for support!)
+
+2. unfixed bugs
+
+- no unfixed bugs
 
 ## Deployment
 
 ### Heroku
 
-* The App live link is: https://
-* Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
-* The project was deployed to Heroku using the following steps.
+- The App live link is: <https://>
+- Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
+- The project was deployed to Heroku using the following steps.
 
 1. Log in to Heroku and create an App
 2. At the Deploy tab, select GitHub as the deployment method.
 3. Select your repository name and click Search. Once it is found, click Connect.
 4. Select the branch you want to deploy, then click Deploy Branch.
 5. The deployment process should happen smoothly if all deployment files are fully functional. Click now the button Open App on the top of the page to access your App.
-6. If the slug size is too large then add large files not required for the app to the .slugignore file. 
 
 ## Main Data Analysis and Machine Learning Libraries
 
@@ -128,7 +195,7 @@ To save time in this process, the IT team suggested an ML system that detects in
 
 - [Github](https://github.com/) is used for hosting the project and accepting all of the pushed code.
 
-- [Gitpod](https://github.com/) is the workspace that hosted all facets of the project.
+- [Codeanywhere](https://app.codeanywhere.com/) is the workspace that hosted all facets of the project.
 
 - [Heroku](https://heroku.com) was used for deployment of the project.
 
@@ -140,7 +207,7 @@ To save time in this process, the IT team suggested an ML system that detects in
 
 ### Content
 
-- General information about powdery mildew in the Executive Summary was sourced from [Wikipedia](https://en.wikipedia.org/wiki/Powdery_mildew)
+- General information about powdery mildew in the "Project Summary Overview" was sourced from [Wikipedia](https://en.wikipedia.org/wiki/Powdery_mildew)
 
 ### Media
 
