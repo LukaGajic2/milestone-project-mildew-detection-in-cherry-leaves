@@ -159,7 +159,7 @@ fixed by adding comment "# pylint: disable=import-error" next to import (thanks 
 
 ### Heroku
 
-- The App live link is: <https://>
+- The App live link is: <https://mildew-detector-live-02cdc32ebba0.herokuapp.com/>
 - Set the runtime.txt Python version to a [Heroku-20](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
 - The project was deployed to Heroku using the following steps.
 
@@ -167,7 +167,7 @@ fixed by adding comment "# pylint: disable=import-error" next to import (thanks 
 2. At the Deploy tab, select GitHub as the deployment method.
 3. Select your repository name and click Search. Once it is found, click Connect.
 4. Select the branch you want to deploy, then click Deploy Branch.
-5. The deployment process should happen smoothly if all deployment files are fully functional. Click now the button Open App on the top of the page to access your App.
+5. Had to change Heroku stack from Heroku-22 to Heroku-20.
 
 ## Main Data Analysis and Machine Learning Libraries
 
@@ -204,6 +204,7 @@ fixed by adding comment "# pylint: disable=import-error" next to import (thanks 
 ### Acknowledgements
 
 - Walkthrough Project 1: Malaria Detector was followed and replicated to conduct the study, build the ML model and construct the Streamlit site.  Much of the code was replicated from the project and tailored as required.
+- (<https://github.com/ericjonesdev/milestone-project-cherry-leaves-mildew-detection/tree/main>) used as inspiration during building notebooks and streamlit app
 
 ### Content
 
